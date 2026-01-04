@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.example.amigoscode.AuthServices.Utils.JwtUtil;
-import com.example.amigoscode.AuthServices.repositories.UserRepository;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -23,7 +22,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private final UserRepository userRepository;
     private final JwtUtil jwtUtil;
     private final UserDetailsService userDetailsService;
 

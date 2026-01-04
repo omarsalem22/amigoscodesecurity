@@ -25,7 +25,7 @@ public class AuthService {
   private final AuthenticationManager authenticationManager;
 
   public String register(RegisterRequest request) {
-    var user = User.builder().username(request.getFirstName() + " " + request.getLastName()).email(request.getEmail())
+    var user = User.builder().username(request.getFirstName() + " " + request.getLastName()).email(request.getEmail()).enabled(true)
         .password(passwordEncoder.encode(request.getPassword())).role(Role.USER).build();
     userRepository.save(user);
     return "user registered successfully";
