@@ -2,6 +2,7 @@ package com.example.amigoscode.AuthServices.Utils;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
@@ -28,6 +29,10 @@ public class JwtUtil {
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24)) 
                 .signWith(getSignInKey(), SignatureAlgorithm.HS512)
                 .compact();
+    }
+
+    public String generateToken(UserDetails userDetails) {
+        return generateToken(userDetails, new HashMap<>());
     }
 
 
